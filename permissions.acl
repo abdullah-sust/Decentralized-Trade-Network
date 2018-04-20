@@ -1,0 +1,25 @@
+/**
+ * Access control rules for tutorial-network
+ */
+
+rule SystemACL {
+  description:  "System ACL to permit all access"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
+rule Default {
+    description: "Allow all participants access to all resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.bjitgroup.com.*"
+    action: ALLOW
+}
+rule PersonPermission {
+  description:  "System ACL to permit all access"
+  participant: "org.bjitgroup.com.Person"
+  operation: READ
+  resource: "org.bjitgroup.com.**"
+  action: ALLOW
+}

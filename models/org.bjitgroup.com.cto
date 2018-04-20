@@ -1,0 +1,27 @@
+/**
+ * My commodity trading network
+ */
+namespace org.bjitgroup.com
+asset Product identified by productId {
+    o String productId
+    o String productName
+    o String description
+    o Double quantity
+    o Double unitPrice
+    --> Person owner
+}
+participant Person identified by personId {
+    o String personId
+    o String firstName
+    o String lastName
+    o String address
+    o Double balance
+}
+transaction productTransfer {
+    o String ownerId
+    o String newOwnerId
+    o String productId
+    --> Product product
+    --> Person owner
+    --> Person newOwner
+}
